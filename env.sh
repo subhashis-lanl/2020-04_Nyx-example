@@ -5,7 +5,8 @@
 # read ids from pantheon file
 export PANTHEON_WORKFLOW_ID=`awk '/pantheonid/{print $NF}' pantheon/pantheon.yml`
 # create the job id - a lower case version of the workflow id
-export PANTHEON_WORKFLOW_JID=${PANTHEON_WORKFLOW_ID,,}
+export PANTHEON_WORKFLOW_JID=`echo "$PANTHEON_WORKFLOW_ID" | awk '{print tolower($0)}'`
+export PANTHEON_APP=`awk '/workflow_app/{print $NF}' pantheon/pantheon.yml`
 
 # this instance's working directory
 export PANTHEON_BASE_PATH=$MEMBERWORK/csc340
@@ -21,3 +22,13 @@ export PANTHEON_DATA_DIR=$PANTHEON_WORKFLOW_DIR/data
 # cinema
 export CINEMAPATH=$(pwd)/submodules/cinema_lib/.local/summit/anaconda3/5.3.0/3.6/bin/cinema
 export CINEMA_PYTHONPATH=$(pwd)/submodules/cinema_lib/.local/summit/anaconda3/5.3.0/3.6/lib/python3.6/site-packages
+
+# print
+echo ------------------------------------------------------------
+echo Panthoen Environment
+echo ------------------------------------------------------------
+echo PANTHEON_WORKFLOW_ID.: $PANTHEON_WORKFLOW_ID
+echo PANTHEON_WORKFLOW_JID: $PANTHEON_WORKFLOW_JID
+echo PANTHEON_APP.........: $PANTHEON_APP
+echo PANTHEON_WORKFLOW_DIR: $PANTHEON_WORKFLOW_DIR
+echo ------------------------------------------------------------

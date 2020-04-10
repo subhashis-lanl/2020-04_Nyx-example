@@ -9,7 +9,9 @@ workflow:
     name: ECP-Artifacts_Nyx-002 
     pantheonid: ECP-Artifacts_Nyx-002
     desc: End-to-end Nyx workflow, using new visual analysis 
-    applications: Nyx ASCENT Cinema 
+    workflow_app: Nyx
+    workflow_in-situ: ASCENT
+    workflow_post-processing: Cinema
            
 contact: 
     name: David Rogers 

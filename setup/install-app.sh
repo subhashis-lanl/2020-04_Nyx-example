@@ -2,7 +2,7 @@
 
 PACKAGE="NYX"
 # make a lower case version of the package 
-PACKAGEDIR=${PACKAGE,,}
+PACKAGEDIR=`echo "$PACKAGE" | awk '{print tolower($0)}'`
 
 echo "--------------------------------------------------"
 echo "PTN: building $PACKAGE"
