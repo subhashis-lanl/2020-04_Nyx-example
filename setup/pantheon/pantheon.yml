@@ -1,0 +1,16 @@
+pantheon:
+    version: 1.0 
+    state: research
+
+project:
+    name: ECP-Artifacts 
+
+workflow:
+    name: LANL_ATDM_ST-STNS01-7.1 
+    pantheonid: ECP-Artifacts_002
+    desc: End-to-end WarpX workflow, using new visual analysis 
+    applications: WarpX ASCENT Cinema 
+           
+contact: 
+    name: David Rogers 
+    email: dhr@lanl.gov 

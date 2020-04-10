@@ -1,0 +1,72 @@
+[
+  {
+    "action": "add_pipelines",
+    "pipelines":
+    {
+      "p1":
+      {
+        "f1":
+        {
+          "type" : "vector_component",
+          "params":
+          {
+            "field" : "something",
+            "component" : 1,
+            "output_name": "y_component"
+          }
+        },
+        "f2":
+        {
+          "type" : "contour",
+          "params":
+          {
+            "field" : "y_component",
+            "levels": 5
+          }
+        }
+      }
+    }
+  },
+
+  {
+    "action": "add_scenes",
+    "scenes":
+    { "s3":
+      {
+        "plots":
+        {
+          "p2":
+          {
+            "type": "pseudocolor",
+            "pipeline": "p1",
+            "field": "y_component"
+          }
+        },
+
+        "renders":
+        {
+          "r1":
+            {
+              "type": "cinema",
+              "phi": "4",
+              "theta": "4",
+              "db_name": "WarpX_example",
+              "fg_color": [0.0, 0.0, 0.0],
+              "bg_color": [1.0, 1.0, 1.0],
+              "annotations": "false"
+            }
+        }
+      }
+    }
+  },
+
+
+  {
+    "action": "execute"
+  },
+
+  {
+    "action": "reset"
+  }
+]
+
