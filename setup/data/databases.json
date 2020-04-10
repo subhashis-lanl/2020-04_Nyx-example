@@ -1,9 +1,0 @@
-[
-{
-    "name": "WarpX_example",
-    "directory": "WarpX_example",
-    "selection" : {
-        "image_shannon_entropy" : [0.85, 0.95]
-    }
-}
-]
