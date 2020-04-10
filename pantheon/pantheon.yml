@@ -6,10 +6,10 @@ project:
     name: ECP-Artifacts 
 
 workflow:
-    name: LANL_ATDM_ST-STNS01-7.1 
-    pantheonid: ECP-Artifacts_002
-    desc: End-to-end WarpX workflow, using new visual analysis 
-    applications: WarpX ASCENT Cinema 
+    name: ECP-Artifacts_Nyx-002 
+    pantheonid: ECP-Artifacts_Nyx-002
+    desc: End-to-end Nyx workflow, using new visual analysis 
+    applications: Nyx ASCENT Cinema 
            
 contact: 
     name: David Rogers 

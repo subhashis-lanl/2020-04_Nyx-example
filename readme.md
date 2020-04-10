@@ -7,7 +7,7 @@
 </p>
 <p align="center">Diagram of the workflow in this example.</p>
 
-This is a [research](https://pantheonscience.github.io/standards/) release of an end-to-end pipeline for the [WarpX](https://github.com/ECP-WarpX/WarpX) code. Using the ECP ALPINE in situ infrastructure [ASCENT](https://github.com/Alpine-DAV/ascent), the pipeline accesses simulation data, defines and extracts an isosurface, then extracts a Cinema database of the results.
+This is a [research](https://pantheonscience.github.io/standards/) release of an end-to-end pipeline for the [Nyx](https://amrex-astro.github.io/Nyx) code. Using the ECP ALPINE in situ infrastructure [ASCENT](https://github.com/Alpine-DAV/ascent), the pipeline accesses simulation data, defines and extracts an isosurface, then extracts a Cinema database of the results.
 
 The output Cinema databases are further processed in a post-processing phase. It takes as input the Cinema databases produced by ASCENT as described above, computes several values on the images for each database, and at the end installs a Cinema viewer that includes a query on several variables.
 
@@ -25,9 +25,9 @@ Screen capture of the resulting Cinema database, viewed in Cinema:Explorer
 
 The `main.workflow` file contains the [Popper](https://falsifiable.us) dependencies that are run during this workflow. The steps, executed in order, are:
 
-- `install dependencies` This installs and builds the current master of WarpX in a scratch workspace.
+- `install dependencies` This installs and builds the current master of Nyx in a scratch workspace.
 
-- `execute` Runs WarpX on 6 nodes, using setup files in the `input` directory. This includes an `alpine_actions.json` file that creates a visualization and exports a Cinema database. 
+- `execute` Runs Nyx on 6 nodes, using setup files in the `input` directory. This includes an `alpine_actions.json` file that creates a visualization and exports a Cinema database. 
 
 - `check job completion` This step pauses the pipeline until the `execute` job finishes.
 

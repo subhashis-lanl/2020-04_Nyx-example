@@ -7,7 +7,7 @@ if [ ! -d $PANTHEON_DATA_DIR ]; then
 fi
 CDB_BASE=$PANTHEON_RUN_DIR
 CDB_DIR=$CDB_BASE/cinema_databases
-CDB=$CDB_DIR/WarpX_example
+CDB=$CDB_DIR/Nyx_example
 
 RUN_ANALYSIS=true
 if $RUN_ANALYSIS; then
