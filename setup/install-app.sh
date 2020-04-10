@@ -16,14 +16,12 @@ git clone --branch ascent https://github.com/AMReX-Astro/Nyx.git
 
 pushd Nyx/Exec/LyA
 
+# static build on summit
+ASCENT_INSTALL_DIR=/gpfs/alpine/world-shared/csc340/software/ascent/current/summit/openmp/gnu/ascent-install/
+
 make -j 4 \
         AMREX_HOME=${PANTHEON_WORKFLOW_DIR}/$PACKAGEDIR/amrex \
-        USE_GPU=TRUE \
         USE_ASCENT_INSITU=TRUE \
-        ASCENT_DIR=$ASCENT_INSTALL_DIR \
-        CONDUIT_DIR=$CONDUIT_INSTALL_DIR \
-        VTKH_DIR=$VTKH_INSTALL_DIR \
-        VTKM_DIR=$VTKM_INSTALL_DIR
-
+        ASCENT_DIR=$ASCENT_INSTALL_DIR
 popd
 popd

@@ -16,7 +16,7 @@ PANTHEON_SOURCE_ROOT=$PWD
 BUILD_FLAGS="-j"
 
 # these settings allow you to control what gets built ... 
-BUILD_CLEAN=false
+BUILD_CLEAN=true
 BUILD_WORKFLOW=true
 BUILD_CONDUIT=false
 BUILD_VTKM=false
