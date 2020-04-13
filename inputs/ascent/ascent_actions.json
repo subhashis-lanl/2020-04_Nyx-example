@@ -1,29 +1,19 @@
 [
-  {
+ {
     "action": "add_pipelines",
     "pipelines":
     {
-      "p1":
+      "pipe2":
       {
-        "f1":
-        {
-          "type" : "vector_component",
-          "params":
+          "f2":
           {
-            "field" : "something",
-            "component" : 1,
-            "output_name": "y_component"
+            "type": "contour",
+            "params":
+            {
+              "field": "Density",
+              "iso_values": 1100000000.0
+            }
           }
-        },
-        "f2":
-        {
-          "type" : "contour",
-          "params":
-          {
-            "field" : "y_component",
-            "levels": 5
-          }
-        }
       }
     }
   },
@@ -31,42 +21,40 @@
   {
     "action": "add_scenes",
     "scenes":
-    { "s3":
+    { "s4":
       {
         "plots":
         {
-          "p2":
+          "p5":
           {
             "type": "pseudocolor",
-            "pipeline": "p1",
-            "field": "y_component"
+            "pipeline": "pipe2",
+            "field": "Density"
           }
         },
 
         "renders":
         {
-          "r1":
+          "r5":
             {
               "type": "cinema",
               "phi": "4",
               "theta": "4",
-              "db_name": "Nyx_example",
+              "db_name": "Nyx_db_contour",
               "fg_color": [0.0, 0.0, 0.0],
               "bg_color": [1.0, 1.0, 1.0],
-              "annotations": "false"
+              "annotations": "true"
             }
         }
       }
     }
   },
 
-
   {
-    "action": "execute"
+   "action": "execute"
   },
 
   {
-    "action": "reset"
+   "action": "reset"
   }
 ]
-
