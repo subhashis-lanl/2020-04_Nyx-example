@@ -41,10 +41,11 @@ The `main.workflow` file contains the [Popper](https://falsifiable.us) dependenc
 ## Directory structure of workflow
 
 ```
-    $PANTHEON_BASE_PATH         (set for your system)
-        pantheon/               (PANTHEONPATH)
-            ecp-artifacts_002/  (PANTHEON_WORKFLOW_DIR)
-                data/           (PANTHEON_DATA_DIR)
+    $PANTHEON_BASE_PATH             (set for your system)
+        pantheon/                   (PANTHEONPATH)
+            <pantheon workflow id>/ (PANTHEON_WORKFLOW_DIR)
+                data/               (PANTHEON_DATA_DIR)
+                results/
                 <other directories>		
 ```
 
