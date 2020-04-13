@@ -17,7 +17,7 @@ cp inputs/ascent/* $RUN_DIR
 cp inputs/* $RUN_DIR
 
 # copy executable
-cp $PANTHEON_WORKFLOW_DIR/nyx/Nyx/Exec/LyA/Nyx3d.gnu.PROF.MPI.ex $RUN_DIR
+cp -rf $PANTHEON_WORKFLOW_DIR/nyx/Nyx/Exec/LyA/* $RUN_DIR
 
 # go to run dir and update the submit script
 pushd $RUN_DIR
