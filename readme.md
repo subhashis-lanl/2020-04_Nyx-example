@@ -27,7 +27,7 @@ The `main.workflow` file contains the [Popper](https://falsifiable.us) dependenc
 
 - `install dependencies` This installs and builds the current master of Nyx in a scratch workspace.
 
-- `execute` Runs Nyx on 6 nodes, using setup files in the `input` directory. This includes an `alpine_actions.json` file that creates a visualization and exports a Cinema database. 
+- `execute` Runs Nyx on 8 nodes, using setup files in the `input` directory. This includes an `alpine_actions.json` file that creates a visualization and exports a Cinema database. 
 
 - `check job completion` This step pauses the pipeline until the `execute` job finishes.
 
