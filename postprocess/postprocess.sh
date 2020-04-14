@@ -9,6 +9,13 @@ CDB_BASE=$PANTHEON_RUN_DIR
 CDB_DIR=$CDB_BASE/cinema_databases
 CDB=$CDB_DIR/Nyx_example
 
+echo "------------------------------------------------------------"
+echo " Cinema"
+echo " CDB_BASE: $CDB_BASE"
+echo " CDB_DIR.: $CDB_DIR"
+echo " CDB.....: $CDB"
+echo "------------------------------------------------------------"
+
 RUN_ANALYSIS=true
 if $RUN_ANALYSIS; then
     echo 'This workflow needs to start from its own base directory'

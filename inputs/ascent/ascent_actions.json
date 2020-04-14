@@ -40,7 +40,7 @@
               "type": "cinema",
               "phi": "4",
               "theta": "4",
-              "db_name": "Nyx_db_contour",
+              "db_name": "Nyx_example",
               "fg_color": [0.0, 0.0, 0.0],
               "bg_color": [1.0, 1.0, 1.0],
               "annotations": "true"
