@@ -6,7 +6,6 @@ project:
     name: ECP-Artifacts 
 
 workflow:
-    name: ECP-Artifacts_Nyx-002 
     pantheonid: ECP-Artifacts_Nyx-002
     desc: End-to-end Nyx workflow, using new visual analysis 
     workflow_app: Nyx
