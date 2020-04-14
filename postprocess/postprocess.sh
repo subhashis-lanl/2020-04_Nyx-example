@@ -8,13 +8,24 @@ fi
 CDB_BASE=$PANTHEON_RUN_DIR
 CDB_DIR=$CDB_BASE/cinema_databases
 CDB=$CDB_DIR/Nyx_example
+CDB_CSV=$CDB/data.csv
+NUMLINES=100
+TRUNCATE_CDB=true
 
 echo "------------------------------------------------------------"
 echo " Cinema"
 echo " CDB_BASE: $CDB_BASE"
 echo " CDB_DIR.: $CDB_DIR"
 echo " CDB.....: $CDB"
+echo " CDB_CSV.: $CDB_CSV"
 echo "------------------------------------------------------------"
+
+# truncate the cinema datbase, for constant work size
+if $TRUNCATE_CDB; then
+    echo " Running Cinema analysis on first $NUMLINES of Cinema DB"
+    echo "------------------------------------------------------------"
+    sed --in-place=.orig '101,$ d' $CDB_CSV
+fi
 
 RUN_ANALYSIS=true
 if $RUN_ANALYSIS; then

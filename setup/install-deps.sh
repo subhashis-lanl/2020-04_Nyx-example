@@ -23,7 +23,7 @@ BUILD_VTKM=false
 BUILD_VTKH=false
 BUILD_ASCENT=false
 BUILD_APP=true
-BUILD_CINEMA=false
+BUILD_CINEMA=true
 
 # other variables
 CMAKE_C_COMPILER=/sw/summit/gcc/6.4.0/bin/gcc
