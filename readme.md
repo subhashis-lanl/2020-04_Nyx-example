@@ -60,6 +60,7 @@ First, be sure you agree with the default choices in `env.sh`. Use `popper run` 
 
 ## Dependencies
 
+- Pantheon. [Setup instructions here.](https://github.com/pantheonscience/ECP-Artifacts/blob/master/usage.md)
 - Must run on Summit
 - Bash
 - Popper version v2.3.0+ [link](https://falsifiable.us)
