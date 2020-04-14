@@ -50,9 +50,9 @@ ASCENT_COMMIT=39201d03622934e4f29470191081da90ff9e8205
 
 # if a clean build, remove everything
 if $BUILD_CLEAN; then
-    echo "--------------------------------------------------"
+    echo "------------------------------------------------------------"
     echo "PTN: clean build ..."
-    echo "--------------------------------------------------"
+    echo "------------------------------------------------------------"
     if [ -d $PANTHEON_WORKFLOW_DIR ]; then
         rm -rf $PANTHEON_WORKFLOW_DIR
     fi
@@ -68,9 +68,9 @@ if $BUILD_WORKFLOW; then
     pushd $PANTHEON_WORKFLOW_DIR
     pwd
 
-    echo "--------------------------------------------------"
+    echo "------------------------------------------------------------"
     echo "PTN: Making App ..."
-    echo "--------------------------------------------------"
+    echo "------------------------------------------------------------"
     module load gcc/6.4.0
     module load cuda/10.1.168 
     module load cmake/3.14.2
@@ -78,9 +78,9 @@ if $BUILD_WORKFLOW; then
 
     PACKAGE="CONDUIT"
     if $BUILD_CONDUIT; then
-        echo "--------------------------------------------------"
+        echo "------------------------------------------------------------"
         echo "PTN: building $PACKAGE"
-        echo "--------------------------------------------------"
+        echo "------------------------------------------------------------"
         git clone --recursive https://github.com/LLNL/conduit.git
         pushd conduit
         git checkout $CONDUIT_COMMIT
@@ -119,9 +119,9 @@ if $BUILD_WORKFLOW; then
 
     PACKAGE="VTKM"
     if $BUILD_VTKM; then
-        echo "--------------------------------------------------"
+        echo "------------------------------------------------------------"
         echo "PTN: building $PACKAGE"
-        echo "--------------------------------------------------"
+        echo "------------------------------------------------------------"
 
         git clone --recursive  https://gitlab.kitware.com/vtk/vtk-m.git
         pushd vtk-m
@@ -165,9 +165,9 @@ if $BUILD_WORKFLOW; then
 
     PACKAGE="VTKH"
     if $BUILD_VTKH; then
-        echo "--------------------------------------------------"
+        echo "------------------------------------------------------------"
         echo "PTN: building $PACKAGE"
-        echo "--------------------------------------------------"
+        echo "------------------------------------------------------------"
 
         git clone --recursive https://github.com/Alpine-DAV/vtk-h.git
         pushd vtk-h
@@ -197,9 +197,9 @@ if $BUILD_WORKFLOW; then
 
     PACKAGE="ASCENT"
     if $BUILD_ASCENT; then
-        echo "--------------------------------------------------"
+        echo "------------------------------------------------------------"
         echo "PTN: building $PACKAGE"
-        echo "--------------------------------------------------"
+        echo "------------------------------------------------------------"
 
         git clone --recursive https://github.com/Alpine-DAV/ascent.git
         pushd ascent
@@ -211,7 +211,6 @@ if $BUILD_WORKFLOW; then
 
         for i in 1 2
         do
-            echo "PTN: ASCENT CMake $i"
             cmake   -DBUILD_SHARED_LIBS=ON \
                     -DENABLE_OPENMP=OFF \
                     -DENABLE_CUDA=ON \
@@ -244,13 +243,13 @@ if $BUILD_WORKFLOW; then
 fi
 
 if $BUILD_CINEMA; then
-    echo "--------------------------------------------------"
+    echo "------------------------------------------------------------"
     echo "PTN: Cinema installation: BEGIN"
-    echo "--------------------------------------------------"
+    echo "------------------------------------------------------------"
     module load python/3.6.6-anaconda3-5.3.0
     pushd submodules/cinema_lib
     pip install --user .
-    echo "--------------------------------------------------"
+    echo "------------------------------------------------------------"
     echo "PTN: Cinema installation: SUCCESS"
-    echo "--------------------------------------------------"
+    echo "------------------------------------------------------------"
 fi
