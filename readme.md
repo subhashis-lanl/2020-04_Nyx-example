@@ -56,7 +56,7 @@ This repository makes use of git submodules. Clone with the recursive option, or
 ## How to run
 
 1. Log onto Summit.
-2. [Set up Pantheon on your system.](https://github.com/pantheonscience/ECP-Artifacts/blob/master/usage.md)
+2. [Set up Pantheon in your environment.](https://github.com/pantheonscience/ECP-Artifacts/blob/master/usage.md)
 3. In a shell:
 ```
     git clone git@github.com:cinemascienceworkflows/2020-04_Nyx-example.git
