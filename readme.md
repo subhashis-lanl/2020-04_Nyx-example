@@ -49,17 +49,13 @@ The `main.workflow` file contains the [Popper](https://falsifiable.us) dependenc
                 <other directories>		
 ```
 
-## Cloning this Git repository.
-
-This repository makes use of git submodules. Clone with the recursive option, or be sure to `git submodule init; git submodule update` before running.
-
 ## How to run
 
 1. Log onto Summit.
 2. [Set up Pantheon in your environment.](https://github.com/pantheonscience/ECP-Artifacts/blob/master/usage.md)
 3. In a shell:
 ```
-    git clone git@github.com:cinemascienceworkflows/2020-04_Nyx-example.git
+    git clone --recursive git@github.com:cinemascienceworkflows/2020-04_Nyx-example.git
     cd 2020-04_Nyx-example
 ```
 4. Check the settings in the `env.sh` file, to make sure they work with your account.
