@@ -55,7 +55,16 @@ This repository makes use of git submodules. Clone with the recursive option, or
 
 ## How to run
 
-First, be sure you agree with the default choices in `env.sh`. Use `popper run` from base directory this git repo to build and run the experiment.
+1. Log onto Summit.
+2. [Set up Pantheon on your system.](https://github.com/pantheonscience/ECP-Artifacts/blob/master/usage.md)
+3. In a shell:
+```
+    git clone git@github.com:cinemascienceworkflows/2020-04_Nyx-example.git
+    cd 2020-04_Nyx-example
+```
+4. Check the settings in the `env.sh` file, to make sure they work with your account.
+5. Then, type `popper run`. The workflow will build and install all necessary software, run the application, post-process the results, and then report where a final Cinema database can be found. 
+6. Problems? email `pantheon@lanl.gov`
 
 
 ## Dependencies
