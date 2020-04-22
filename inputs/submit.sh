@@ -2,7 +2,7 @@
 
 #BSUB -J <pantheon_workflow_jid> 
 #BSUB -nnodes 8
-#BSUB -P CSC340
+#BSUB -P AST160
 #BSUB -W 00:03
 
 module load gcc/6.4.0
