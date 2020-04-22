@@ -1,0 +1,23 @@
+---
+-
+  action: add_pipelines
+  pipelines:
+    pl1:
+      f1:
+        params:
+          x_offset: 0.0
+          y_offset: 0.0
+          z_offset: 0.0
+          topology: topo
+        type: 3slice
+-
+  action: add_scenes
+  scenes:
+    s1:
+      image_prefix: "ascent_render_slicing_"
+      plots:
+        p1:
+          field: Density
+          pipeline: pl1
+          type: pseudocolor
+
