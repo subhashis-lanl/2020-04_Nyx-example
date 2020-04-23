@@ -14,12 +14,12 @@ fi
 
 mkdir $RUN_DIR
 
-# copy input files
-cp inputs/ascent/* $RUN_DIR
-cp inputs/* $RUN_DIR
-
 # copy executable and support files
 cp -rf $PANTHEON_WORKFLOW_DIR/nyx/Nyx/Exec/LyA/* $RUN_DIR
+
+# copy input files and overwrite input files
+cp inputs/ascent/* $RUN_DIR
+cp inputs/* $RUN_DIR
 
 # go to run dir and update the submit script
 pushd $RUN_DIR
