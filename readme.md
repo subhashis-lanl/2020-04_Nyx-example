@@ -55,8 +55,10 @@ The `main.workflow` file contains the [Popper](https://falsifiable.us) dependenc
 2. [Set up Pantheon in your environment.](https://github.com/pantheonscience/ECP-Artifacts/blob/master/usage.md)
 3. In a shell:
 ```
-    git clone --recursive git@github.com:cinemascienceworkflows/2020-04_Nyx-example.git
+    git clone git@github.com:cinemascienceworkflows/2020-04_Nyx-example.git
     cd 2020-04_Nyx-example
+    git submodule init
+    git submodule update
 ```
 4. Check the settings in the `env.sh` file, to make sure they work with your account.
 5. Then, type `popper run`. The workflow will build and install all necessary software, run the application, post-process the results, and then report where a final Cinema database can be found. 
