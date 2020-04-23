@@ -18,14 +18,14 @@
         r5:
           annotations: 'true'
           bg_color:
-          - 1.0
-          - 1.0
-          - 1.0
+            - 1.0
+            - 1.0
+            - 1.0
           db_name: Nyx_example
           fg_color:
-          - 0.0
-          - 0.0
-          - 0.0
+            - 0.0
+            - 0.0
+            - 0.0
           phi: '4'
           theta: '4'
           type: cinema
