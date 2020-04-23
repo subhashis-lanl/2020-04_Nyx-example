@@ -1,0 +1,33 @@
+- action: add_pipelines
+  pipelines:
+    pipe2:
+      f2:
+        params:
+          field: Density
+          iso_values: 1100000000.0
+        type: contour
+- action: add_scenes
+  scenes:
+    s4:
+      plots:
+        p5:
+          field: Density
+          pipeline: pipe2
+          type: pseudocolor
+      renders:
+        r5:
+          annotations: 'true'
+          bg_color:
+          - 1.0
+          - 1.0
+          - 1.0
+          db_name: Nyx_example
+          fg_color:
+          - 0.0
+          - 0.0
+          - 0.0
+          phi: '4'
+          theta: '4'
+          type: cinema
+- action: execute
+- action: reset
