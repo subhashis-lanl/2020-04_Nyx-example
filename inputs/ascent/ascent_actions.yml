@@ -1,4 +1,5 @@
-- action: add_pipelines
+- 
+  action: add_pipelines
   pipelines:
     pipe2:
       f2:
@@ -6,7 +7,8 @@
           field: Density
           iso_values: 1100000000.0
         type: contour
-- action: add_scenes
+- 
+  action: add_scenes
   scenes:
     s4:
       plots:
@@ -29,5 +31,7 @@
           phi: '4'
           theta: '4'
           type: cinema
-- action: execute
-- action: reset
+- 
+  action: execute
+- 
+  action: reset
