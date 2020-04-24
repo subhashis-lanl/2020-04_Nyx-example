@@ -1,5 +1,8 @@
 # Pantheon environment file
 
+# summit environment
+SUMMIT_ALLOCATION=csc340
+
 # read values from pantheon file
 export PANTHEON_WORKFLOW_ID=`awk '/pantheonid/{print $NF}' pantheon/pantheon.yml`
     # create the job id - a lower case version of the workflow id
