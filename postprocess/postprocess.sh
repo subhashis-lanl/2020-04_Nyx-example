@@ -5,6 +5,8 @@ source pantheon_env.sh
 if [ ! -d $PANTHEON_DATA_DIR ]; then
     mkdir $PANTHEON_DATA_DIR
 fi
+
+# get CDB locations
 CDB_BASE=$PANTHEON_RUN_DIR
 CDB_DIR=$CDB_BASE/cinema_databases
 CDB=$CDB_DIR/Nyx_example
@@ -42,13 +44,15 @@ if $RUN_ANALYSIS; then
 fi
 
 PACKAGE=true
+TARFILE=cinema_viewer.tar.xz
+TARSOURCEDIR=cinema_databases/
 if $PACKAGE; then
     echo 'Package the viewer+db tarball for xfer and validation'
     pushd $CDB_BASE
-    tar -cvJf ${PANTHEON_DATA_DIR}/cinema_viewer.tar.xz cinema_databases/
+    tar -cvJf $PANTHEON_DATA_DIR/$TARFILE $TARSOURCEDIR 
     echo ===========================================================
     echo Cinema database tarball created:
-    echo  ${PANTHEON_DATA_DIR}/cinema_viewer.tar.xz
+    echo  $PANTHEON_DATA_DIR/$TARFILE
     echo
     echo Please transfer this to a computer with Firefox, unpack
     echo the tarball, and open explore.html.
