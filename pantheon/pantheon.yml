@@ -3,10 +3,10 @@ pantheon:
     state: research
 
 project:
-    name: ECP-Artifacts 
+    name: ECP-Examples 
 
 workflow:
-    pantheonid: ECP-Artifacts_Nyx-002
+    pantheonid: ECP-Examples_Nyx-001
     desc: End-to-end Nyx workflow, using new visual analysis 
     workflow_app: Nyx
     workflow_in-situ: ASCENT
