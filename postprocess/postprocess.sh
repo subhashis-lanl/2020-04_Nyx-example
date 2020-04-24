@@ -37,7 +37,7 @@ if $RUN_ANALYSIS; then
     cp -rf cinema/* $CDB_DIR/cinema
     cp -rf explore.html $CDB_DIR 
     # rewrite the databases file
-    cp ../../../data/databases.json $CDB_DIR/cinema/explorer/1.9
+    cp ../../../inputs/cinema/databases.json $CDB_DIR/cinema/explorer/1.9
     popd
 fi
 
