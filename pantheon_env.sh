@@ -22,7 +22,7 @@ export CINEMA_PYTHONPATH=$(pwd)/submodules/cinema_lib/.local/summit/anaconda3/5.
 
 # print
 echo ----------------------------------------------------------------------
-echo Panthoen Environment
+echo Pantheon Environment
 echo ----------------------------------------------------------------------
 echo PANTHEONPATH.........: $PANTHEONPATH
 echo PANTHEON_WORKFLOW_DIR: $PANTHEON_WORKFLOW_DIR
