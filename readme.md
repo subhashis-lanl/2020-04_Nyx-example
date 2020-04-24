@@ -60,7 +60,7 @@ The `main.workflow` file contains the [Popper](https://falsifiable.us) dependenc
     git submodule init
     git submodule update
 ```
-4. Check the settings in the `env.sh` file, to make sure they work with your account.
+4. Check the settings in the `pantheon_env.sh` file, to make sure they work with your account.
 5. Then, type `popper run`. The workflow will build and install all necessary software, run the application, post-process the results, and then report where a final Cinema database can be found. 
 6. Problems? email `pantheon@lanl.gov`
 

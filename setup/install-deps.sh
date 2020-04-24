@@ -2,7 +2,7 @@
 
 # adding comment
 
-source ./env.sh
+source ./pantheon_env.sh
 
 echo "PTN: Establishing Pantheon workflow directory:"
 echo $PANTHEON_WORKFLOW_DIR

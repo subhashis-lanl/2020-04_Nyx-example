@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-source env.sh
+source pantheon_env.sh
 
 if [ ! -d $PANTHEON_DATA_DIR ]; then
     mkdir $PANTHEON_DATA_DIR

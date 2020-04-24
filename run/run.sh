@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./env.sh
+source ./pantheon_env.sh
 
 # update the submit script
 RUN_DIR=$PANTHEON_RUN_DIR

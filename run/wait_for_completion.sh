@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source env.sh
+source pantheon_env.sh
 
 time=-$(date +%s); 
 while [ "$(bjobs 2>&1 | grep "$PANTHEON_WORKFLOW_JID")" ]; do 
