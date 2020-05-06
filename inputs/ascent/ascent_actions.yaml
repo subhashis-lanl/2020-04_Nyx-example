@@ -17,7 +17,7 @@
       f2:
         params:
           field: "Density"
-          sample_rate: "0.1"
+          sample_rate: "0.05"
           bins: "32"
         type: "histsampling"
 -

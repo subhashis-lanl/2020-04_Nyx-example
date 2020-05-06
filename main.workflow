@@ -20,8 +20,3 @@ action "check job completion" {
   args = "./sbang.sh run/wait_for_completion.sh"
 }
 
-action "postprocess" {
-  needs = "check job completion"
-  uses = "sh"
-  args = "./sbang.sh postprocess/postprocess.sh"
-}
