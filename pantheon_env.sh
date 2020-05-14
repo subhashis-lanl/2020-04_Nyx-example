@@ -1,7 +1,7 @@
 # Pantheon environment file
 
-# summit environment
-SUMMIT_ALLOCATION=csc340
+# summit environment: Using Cinema allocation
+SUMMIT_ALLOCATION=csc420
 
 # read values from pantheon file
 export PANTHEON_WORKFLOW_ID=`awk '/pantheonid/{print $NF}' pantheon/pantheon.yml`
