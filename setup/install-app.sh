@@ -36,7 +36,7 @@ ASCENT_INSTALL_DIR=/gpfs/alpine/world-shared/csc340/software/ascent/$ASCENT_VERS
 #ASCENT_INSTALL_DIR=ASCENT_INSTALL_DIR=/gpfs/alpine/proj-shared/csc340/larsen/ascent_5_5_20_openmp/uberenv_libs/ascent-install
 
 
-make -j \
+make -j 36 \
         AMREX_HOME=$PANTHEON_WORKFLOW_DIR/$PACKAGEDIR/amrex \
         USE_ASCENT_INSITU=TRUE \
         USE_MPI=TRUE \
