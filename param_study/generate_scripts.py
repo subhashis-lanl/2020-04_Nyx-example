@@ -14,6 +14,7 @@ import time
 
 ## hardcoded: Fianlly these will come from user input JSON/yaml file
 num_procs = [1,4]
+exec_name = 'Nyx3d.gnu.PROF.MPI.ex'
 
 ## Read PANTHEON specific environment variables
 ROOT_PANTHEONPATH =os.getenv("PANTHEONPATH")
@@ -22,13 +23,6 @@ ROOT_PANTHEON_RUN_DIR = os.getenv("PANTHEON_RUN_DIR")
 ROOT_PANTHEON_DATA_DIR = os.getenv("PANTHEON_DATA_DIR")
 ROOT_PANTHEON_WORKFLOW_ID = os.getenv("PANTHEON_WORKFLOW_ID")
 ROOT_PANTHEON_WORKFLOW_JID = os.getenv("PANTHEON_WORKFLOW_JID") 
-
-##Create folder for keeping all the generated scripts for param study
-#script_path = ROOT_PANTHEON_WORKFLOW_DIR + '/scripts/'
-#if not os.path.exists(script_path):
-#    os.makedirs(script_path)
-#else:
-#    os.system('rm ' + script_path)
 
 #Create job scripts with different parameter configurations
 for i in num_procs:
@@ -52,7 +46,7 @@ for i in num_procs:
 	
 	file.write('#!/bin/bash\n\n') 
 	
-	unique_jid = ROOT_PANTHEON_WORKFLOW_JID + str(uid) 
+	unique_jid = ROOT_PANTHEON_WORKFLOW_JID + '_' + str(uid) 
 	line = '#BSUB -J ' +  str(unique_jid) + '\n'
 	file.write(line)
 	line = '#BSUB -nnodes ' +  str(i) + '\n'
@@ -69,18 +63,32 @@ for i in num_procs:
 	line = 'module load hdf5/1.8.18' + '\n\n'
 	file.write(line)
 
-	line = 'jsrun -n ' + str(i) + ' ' + UNIQUE_RUNDIR + 'Nyx3d.gnu.PROF.MPI.ex inputs'
+	line = 'jsrun -n ' + str(i) + ' ' + UNIQUE_RUNDIR + exec_name + ' inputs'
+	print ('Job submit: ' + line)
 	file.write(line)
 	
 	file.close()
-	
 
-	## Copy support APP support files $PANTHEON_WORKFLOW_DIR/nyx/Nyx/Exec/LyA/* $RUN_DIR
+	## Copy support APP support files
 	cp_command = 'cp -rf ' + ROOT_PANTHEON_WORKFLOW_DIR + '/nyx/Nyx/Exec/LyA/* ' + UNIQUE_RUNDIR
 	os.system(cp_command)
 
-	
+	## Copy input files
+	cp_command = 'cp inputs/ascent/* ' + UNIQUE_RUNDIR
+	os.system(cp_command)
 
+	#cp_command = 'cp inputs/* ' + UNIQUE_RUNDIR
+	#os.system(cp_command)
+
+
+	## Submit the JOB
+	submit_command = 'bsub ' + script_name
+	os.system(submit_command)
+
+
+
+
+	
 
 
 
