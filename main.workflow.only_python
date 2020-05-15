@@ -1,10 +1,10 @@
 workflow "ECP-Artifacts_002" {
-resolves = "generate param study scripts"
+resolves = "perform param study scripts"
 }
 
-action "generate param study scripts" {
+action "perform param study scripts" {
   uses = "sh"
-  runs = "param_study/generate_scripts.py"
+  runs = "param_study/perform_param_study.py"
   args = []
 }
 

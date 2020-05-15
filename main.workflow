@@ -1,5 +1,5 @@
 workflow "ECP-Artifacts_002" {
-resolves = "generate param study scripts"
+resolves = "perform param study"
 }
 
 action "install dependencies" {
@@ -7,10 +7,10 @@ action "install dependencies" {
   args = "./sbang.sh setup/install-deps.sh"
 }
 
-action "generate param study scripts" {
+action "perform param study" {
   needs = "install dependencies"
   uses = "sh"
-  runs = "param_study/generate_scripts.py"
+  runs = "param_study/perform_param_study.py"
   args = []
 }
 
