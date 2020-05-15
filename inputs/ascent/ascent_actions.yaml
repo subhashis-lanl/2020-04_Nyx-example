@@ -1,0 +1,33 @@
+-
+  action: add_pipelines
+  pipelines:
+    pipe1:
+      f0:
+        params:
+          field: "ghost_indicator"
+          min_value: 0.0
+          max_value: 0.0
+        type: "ghost_stripper"
+      f1:
+        params:
+          field: "Density"
+          clamp_min_value: "0.001"
+          output_name: "log_Density"
+        type: "log"
+      f2:
+        params:
+          field: "Density"
+          sample_rate: "0.05"
+          bins: "32"
+        type: "histsampling"
+-
+  action: "add_scenes"
+  scenes: 
+    scene1:
+      image_prefix: "ascent_render_sampling_"
+      plots: 
+        plt1: 
+          type: "pseudocolor"
+          pipeline: "pipe1"
+          field: "valSampled"
+
