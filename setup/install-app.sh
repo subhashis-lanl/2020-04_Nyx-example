@@ -40,7 +40,7 @@ make -j 36 \
         AMREX_HOME=$PANTHEON_WORKFLOW_DIR/$PACKAGEDIR/amrex \
         USE_ASCENT_INSITU=TRUE \
         USE_MPI=TRUE \
-        USE_OMP=FALSE \
+        USE_OMP=TRUE \
         ASCENT_HOME=$ASCENT_INSTALL_DIR
 popd
 popd

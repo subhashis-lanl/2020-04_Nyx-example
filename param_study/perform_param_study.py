@@ -14,10 +14,10 @@ from pyutil import filereplace
 ###############################################
 
 ## hardcoded: Fianlly these will come from user input JSON/yaml file
-num_procs = [4]
-phi = [2]
-theta = [2]
-exec_name = 'Nyx3d.gnu.PROF.MPI.ex'
+num_procs = [1,4,8]
+phi = [4]
+theta = [4]
+exec_name = 'Nyx3d.gnu.PROF.MPI.OMP.ex'
 
 ## Read PANTHEON specific environment variables
 ROOT_PANTHEONPATH =os.getenv("PANTHEONPATH")
@@ -46,7 +46,6 @@ for param in itertools.product(num_procs,phi,theta):
 		sys.exit()
 	else:
 		os.makedirs(UNIQUE_RUNDIR)
-
 
 	## Create submit script
 	script_name = UNIQUE_RUNDIR + 'submit_' + str(uid) + '.sh'
@@ -103,4 +102,6 @@ for param in itertools.product(num_procs,phi,theta):
 	os.chdir(UNIQUE_RUNDIR) ## Go to submit dir		
 	submit_command = 'bsub ' + 'submit_' + str(uid) + '.sh'
 	os.system(submit_command) ## submit the actual job
-	os.chdir(current_dir) # come back to working diri
+	os.chdir(current_dir) # come back to working dir
+
+
