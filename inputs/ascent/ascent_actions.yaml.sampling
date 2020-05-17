@@ -1,0 +1,41 @@
+-
+  action: add_pipelines
+  pipelines:
+    pipe1:
+      f0:
+        params:
+          field: "ghost_indicator"
+          min_value: 0.0
+          max_value: 0.0
+        type: "ghost_stripper"
+      f1:
+        params:
+          field: "Density"
+          clamp_min_value: "0.001"
+          output_name: "log_Density"
+        type: "log"
+      f2:
+        params:
+          field: "Density"
+          sample_rate: "0.05"
+          bins: "32"
+        type: "histsampling"
+-
+  action: "add_scenes"
+  scenes:
+    scene1:
+      plots:
+        plt1:
+          type: "pseudocolor"
+          pipeline: "pipe1"
+          field: "valSampled"
+      renders:
+        r1:
+          type: "cinema"
+          phi: "4"
+          theta: "4"
+          db_name: "Nyx_example"
+          bg_color: [1.0, 1.0, 1.0]
+          fg_color: [0.0, 0.0, 0.0]
+
+

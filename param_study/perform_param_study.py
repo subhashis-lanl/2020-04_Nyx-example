@@ -14,7 +14,7 @@ from pyutil import filereplace
 ###############################################
 
 ## hardcoded: Fianlly these will come from user input JSON/yaml file
-num_procs = [1,4]
+num_procs = [4]
 phi = [2]
 theta = [2]
 exec_name = 'Nyx3d.gnu.PROF.MPI.ex'
@@ -27,7 +27,8 @@ ROOT_PANTHEON_DATA_DIR = os.getenv("PANTHEON_DATA_DIR")
 ROOT_PANTHEON_WORKFLOW_ID = os.getenv("PANTHEON_WORKFLOW_ID")
 ROOT_PANTHEON_WORKFLOW_JID = os.getenv("PANTHEON_WORKFLOW_JID") 
 
-#Create job scripts with different parameter configurations
+#######################################################################
+#Create job scripts with different parameter configurations and submit
 for param in itertools.product(num_procs,phi,theta):
 	
 	##uid is a unique id will be used to name the scripts.
@@ -49,7 +50,6 @@ for param in itertools.product(num_procs,phi,theta):
 
 	## Create submit script
 	script_name = UNIQUE_RUNDIR + 'submit_' + str(uid) + '.sh'
-	print ('generating script: ' + script_name)
 	file = open(script_name,"w")
 	
 	file.write('#!/bin/bash\n\n') 
@@ -61,7 +61,7 @@ for param in itertools.product(num_procs,phi,theta):
 	file.write(line)
 	line = '#BSUB -P ' +  'csc420' + '\n'
 	file.write(line)
-	line = '#BSUB -W ' +  '00:03' + '\n\n'
+	line = '#BSUB -W ' +  '00:02' + '\n\n'
 	file.write(line)
 
 	line = 'module load gcc/6.4.0' + '\n'
@@ -72,30 +72,35 @@ for param in itertools.product(num_procs,phi,theta):
 	file.write(line)
 
 	line = 'jsrun -n ' + str(pid) + ' ' + UNIQUE_RUNDIR + exec_name + ' inputs'
-	print ('Job submit: ' + line)
 	file.write(line)
 	
 	file.close()
 
 	## Copy support APP support files
 	cp_command = 'cp -rf ' + ROOT_PANTHEON_WORKFLOW_DIR + '/nyx/Nyx/Exec/LyA/* ' + UNIQUE_RUNDIR
+	#print (cp_command)
 	os.system(cp_command)
+	## remove any existing ascent actions file
+	os.system('rm ' + UNIQUE_RUNDIR + 'ascent_actions*')
 
 	## Copy input files
 	cp_command = 'cp inputs/ascent/* ' + UNIQUE_RUNDIR
 	os.system(cp_command)
 	
 	## Replace phi and theta values inplace in the copied actions file
-	filereplace(UNIQUE_RUNDIR+'ascent_actions.json','''"phi": "4"''', '"phi":' + str(f'"{phi_val}"'))
-	filereplace(UNIQUE_RUNDIR+'ascent_actions.json','''"theta": "4"''', '"theta":' + str(f'"{theta_val}"'))
+	filereplace(UNIQUE_RUNDIR+'ascent_actions.yaml','''phi: "4"''', 'phi: ' + str(f'"{phi_val}"'))
+	filereplace(UNIQUE_RUNDIR+'ascent_actions.yaml','''theta: "4"''', 'theta: ' + str(f'"{theta_val}"'))
 	
 	## Limit number of steps to run in Nyx input file
 	filereplace(UNIQUE_RUNDIR+'inputs',"max_step = 10000000","max_step = 3")
-
-
-	## Submit the JOB
-	submit_command = 'bsub ' + script_name
-	os.system(submit_command)
-
+	## Stop dumping plt files
+	filereplace(UNIQUE_RUNDIR+'inputs',"amr.plot_int        = 1","amr.plot_int = -1")
+	## Stop dumping checkpoint files
+	filereplace(UNIQUE_RUNDIR+'inputs',"amr.check_int         = 100","amr.check_int = -1")
 	
-
+	## Go the submit directory and submit the JOB and come back to the working directory
+	current_dir = os.getcwd() ## save the current working dir
+	os.chdir(UNIQUE_RUNDIR) ## Go to submit dir		
+	submit_command = 'bsub ' + 'submit_' + str(uid) + '.sh'
+	os.system(submit_command) ## submit the actual job
+	os.chdir(current_dir) # come back to working diri
