@@ -14,9 +14,11 @@ from pyutil import filereplace
 ###############################################
 
 ## hardcoded: Fianlly these will come from user input JSON/yaml file
-num_procs = [1,4,8]
+num_procs = [4]
 phi = [4]
 theta = [4]
+image_size = [256]
+
 exec_name = 'Nyx3d.gnu.PROF.MPI.OMP.ex'
 
 ## Read PANTHEON specific environment variables
@@ -29,15 +31,16 @@ ROOT_PANTHEON_WORKFLOW_JID = os.getenv("PANTHEON_WORKFLOW_JID")
 
 #######################################################################
 #Create job scripts with different parameter configurations and submit
-for param in itertools.product(num_procs,phi,theta):
+for param in itertools.product(num_procs,phi,theta,image_size):
 	
 	##uid is a unique id will be used to name the scripts.
 	pid = param[0]
 	phi_val = param[1]
 	theta_val = param[2]
+	isize = param[3]
 	
 	## uid is a unique identifier used to create folders and files	
-	uid = 'proc' + str(pid) + '_phi' + str(phi_val) + '_theta' + str(theta_val)
+	uid = 'proc' + str(pid) + '_phi' + str(phi_val) + '_theta' + str(theta_val) + '_isize' + str(isize)
 	
 	## generate unique run directories
 	UNIQUE_RUNDIR = ROOT_PANTHEON_RUN_DIR + '_' + str(uid) + '/'
@@ -87,15 +90,19 @@ for param in itertools.product(num_procs,phi,theta):
 	os.system(cp_command)
 	
 	## Replace phi and theta values inplace in the copied actions file
-	filereplace(UNIQUE_RUNDIR+'ascent_actions.yaml','''phi: "4"''', 'phi: ' + str(f'"{phi_val}"'))
-	filereplace(UNIQUE_RUNDIR+'ascent_actions.yaml','''theta: "4"''', 'theta: ' + str(f'"{theta_val}"'))
+	filereplace(UNIQUE_RUNDIR+'ascent_actions.yaml','phi: 4', 'phi: ' + str(phi_val))
+	filereplace(UNIQUE_RUNDIR+'ascent_actions.yaml','theta: 4', 'theta: ' + str(theta_val))
+	filereplace(UNIQUE_RUNDIR+'ascent_actions.yaml','image_width: 512', 'image_width: ' + str(isize))
+	filereplace(UNIQUE_RUNDIR+'ascent_actions.yaml','image_height: 512', 'image_height: ' + str(isize))
 	
 	## Limit number of steps to run in Nyx input file
-	filereplace(UNIQUE_RUNDIR+'inputs',"max_step = 10000000","max_step = 3")
+	#filereplace(UNIQUE_RUNDIR+'inputs',"max_step = 10000000","max_step = 3")
 	## Stop dumping plt files
 	filereplace(UNIQUE_RUNDIR+'inputs',"amr.plot_int        = 1","amr.plot_int = -1")
 	## Stop dumping checkpoint files
 	filereplace(UNIQUE_RUNDIR+'inputs',"amr.check_int         = 100","amr.check_int = -1")
+	## Use a specific checkpoint file
+	filereplace(UNIQUE_RUNDIR+'inputs',"#amr.restart = chk00100","amr.restart = /ccs/home/dutta/Nyx_chekpoints/chk00350")
 	
 	## Go the submit directory and submit the JOB and come back to the working directory
 	current_dir = os.getcwd() ## save the current working dir
