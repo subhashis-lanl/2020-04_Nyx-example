@@ -13,12 +13,17 @@ import time
 from pyutil import filereplace
 ###############################################
 
-## hardcoded: Fianlly these will come from user input JSON/yaml file
-num_procs = [4]
-phi = [4]
-theta = [4]
-image_size = [256]
+## Read input paramr JSON file
+input_param_file = 'inputs/param_study/input_params.json'
+with open(input_param_file, "r") as config_params:
+    config_values = json.load(config_params)
 
+num_procs = config_values['num_procs']
+phi = config_values['phi']
+theta = config_values['theta']
+image_size = config_values['image_size']
+
+# Name of the executable file
 exec_name = 'Nyx3d.gnu.PROF.MPI.OMP.ex'
 
 ## Read PANTHEON specific environment variables
@@ -87,6 +92,8 @@ for param in itertools.product(num_procs,phi,theta,image_size):
 
 	## Copy input files
 	cp_command = 'cp inputs/ascent/* ' + UNIQUE_RUNDIR
+	os.system(cp_command)
+	cp_command = 'cp inputs/param_study/* ' + UNIQUE_RUNDIR
 	os.system(cp_command)
 	
 	## Replace phi and theta values inplace in the copied actions file

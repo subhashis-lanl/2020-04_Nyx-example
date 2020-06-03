@@ -1,0 +1,8 @@
+{
+	"_comment": "Parameter values that will be used for the study.",
+	"num_procs": [4],
+	"phi": [2],
+	"theta": [2],
+	"image_size": [512]
+}
+
