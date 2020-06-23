@@ -33,8 +33,8 @@ pushd Nyx/Exec/LyA
 # static build on summit
 ASCENT_VERSION=0.5.2-pre
 #ASCENT_INSTALL_DIR=/gpfs/alpine/world-shared/csc340/software/ascent/$ASCENT_VERSION/summit/openmp/gnu/ascent-install
-ASCENT_INSTALL_DIR=/gpfs/alpine/proj-shared/csc340/larsen/ascent_5_5_20_openmp/uberenv_libs/ascent-install
-
+#ASCENT_INSTALL_DIR=/gpfs/alpine/proj-shared/csc340/larsen/ascent_5_5_20_openmp/uberenv_libs/ascent-install
+ASCENT_INSTALL_DIR=/gpfs/alpine/world-shared/csc340/software/ascent/current/summit/openmp/gnu/ascent-install
 
 make -j 36 \
         AMREX_HOME=$PANTHEON_WORKFLOW_DIR/$PACKAGEDIR/amrex \

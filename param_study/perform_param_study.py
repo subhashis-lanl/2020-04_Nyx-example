@@ -68,7 +68,7 @@ for param in itertools.product(num_procs,phi,theta,image_size):
 	file.write(line)
 	line = '#BSUB -P ' +  'csc420' + '\n'
 	file.write(line)
-	line = '#BSUB -W ' +  '00:02' + '\n\n'
+	line = '#BSUB -W ' +  '00:05' + '\n\n'
 	file.write(line)
 
 	line = 'module load gcc/6.4.0' + '\n'

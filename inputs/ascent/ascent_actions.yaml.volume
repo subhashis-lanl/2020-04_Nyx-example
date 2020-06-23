@@ -23,25 +23,3 @@
           type: "pseudocolor"
           pipeline: "pipe1"
           field: "log_Density"
-          color_table:
-            control_points:
-              - 
-                type: "alpha"
-                position: 0.5
-                alpha: 1.0
-              - 
-                type: "alpha"
-                position: 1.0
-                alpha: 1.0
-      renders:
-        r1:
-          type: "cinema"
-          phi: 4
-          theta: 4
-          image_width: 512
-          image_height: 512
-          db_name: "Nyx_example"
-          bg_color: [1.0, 1.0, 1.0]
-          fg_color: [0.0, 0.0, 0.0]
-
-

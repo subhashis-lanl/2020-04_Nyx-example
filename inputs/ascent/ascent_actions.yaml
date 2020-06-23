@@ -17,7 +17,7 @@
       f2:
         params:
           field: "log_Density"
-          iso_values: 23.5
+          iso_values: 24
         type: "contour"
 -
   action: "add_scenes"
