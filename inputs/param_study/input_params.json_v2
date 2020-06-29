@@ -1,8 +1,8 @@
 {
 	"_comment": "Parameter values that will be used for the study.",
 	"num_procs": [4],
-	"phi": [4,8],
-	"theta": [4,8],
-	"image_size": [512,1024]
+	"phi": [5,7,9],
+	"theta": [4,6,8],
+	"image_size": [1024,2048]
 }
 

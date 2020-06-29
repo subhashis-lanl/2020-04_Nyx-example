@@ -14,6 +14,11 @@
           clamp_min_value: 0.001
           output_name: "log_Density"
         type: "log"
+      f2:
+        params:
+          field: "log_Density"
+          iso_values: 24
+        type: "contour"
 -
   action: "add_scenes"
   scenes:
@@ -23,3 +28,16 @@
           type: "pseudocolor"
           pipeline: "pipe1"
           field: "log_Density"
+      renders:
+        r1:
+          type: "cinema"
+          phi: 4
+          theta: 4
+          image_width: 512
+          image_height: 512
+          db_name: "Nyx_example"
+          annotations: "false"
+          bg_color: [1.0, 1.0, 1.0]
+          fg_color: [0.0, 0.0, 0.0]
+
+
