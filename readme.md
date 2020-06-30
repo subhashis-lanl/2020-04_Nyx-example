@@ -21,6 +21,10 @@ This example can be easily adjusted to compute different quantities, and filter 
 Screen capture of the resulting Cinema database, viewed in Cinema:Explorer
 </p>
 
+## Parameter Study results
+
+This workflow is part of an ECP Milestone, in which a parameter study was run to understand some of the tradeoffs for writing out Cinema datbases from ECP applications. The results are summarized [here](report.md).
+
 ## Workflow steps
 
 The `main.workflow` file contains the [Popper](https://falsifiable.us) dependencies that are run during this workflow. The steps, executed in order, are:

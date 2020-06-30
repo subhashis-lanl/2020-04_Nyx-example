@@ -1,0 +1,16 @@
+{
+    "input"   : "input_params.json",
+    "basedir" : "Nyx_controlled_param_study",
+    "resdir"  : "report",
+    "size"  : [5.0, 5.0],
+    "axes" : {
+        "y" : {
+            "label" : "time (in sec)",
+            "variable" : "exec_scene1",
+            "lims"  : [0.0, 500.0]
+        },
+        "x" : {
+            "label" : "number of cinema images"
+        }
+    }
+}
