@@ -109,7 +109,7 @@ for param in itertools.product(num_procs,phi,theta,image_size):
 	## Stop dumping checkpoint files
 	filereplace(UNIQUE_RUNDIR+'inputs',"amr.check_int         = 100","amr.check_int = -1")
 	## Use a specific checkpoint file
-	filereplace(UNIQUE_RUNDIR+'inputs',"#amr.restart = chk00100","amr.restart = /ccs/home/dutta/Nyx_chekpoints/chk00350")
+	#filereplace(UNIQUE_RUNDIR+'inputs',"#amr.restart = chk00100","amr.restart = /ccs/home/dutta/Nyx_chekpoints/chk00350")
 	
 	## Go the submit directory and submit the JOB and come back to the working directory
 	current_dir = os.getcwd() ## save the current working dir
