@@ -14,6 +14,11 @@
           clamp_min_value: 0.001
           output_name: "log_Density"
         type: "log"
+      f2:
+        params:
+          field: "log_Density"
+          iso_values: 23.5
+        type: "contour"
 -
   action: "add_scenes"
   scenes:
