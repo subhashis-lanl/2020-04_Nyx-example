@@ -23,7 +23,7 @@ Screen capture of the resulting Cinema database, viewed in Cinema:Explorer
 
 ## Parameter Study results
 
-This workflow is part of an ECP Milestone, in which a parameter study was run to understand some of the tradeoffs for writing out Cinema datbases from ECP applications. The results are summarized [here](report.md)
+This workflow is part of an ECP Milestone, in which a parameter study was run to understand some of the tradeoffs for writing out Cinema datbases from ECP applications. The results are summarized [here](report.md).
 
 ## Workflow steps
 
