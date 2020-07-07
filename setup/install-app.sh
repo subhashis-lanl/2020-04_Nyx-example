@@ -12,7 +12,10 @@ mkdir $PACKAGEDIR
 pushd $PACKAGEDIR
 
 git clone --branch development https://github.com/AMReX-Codes/amrex.git
+git checkout 0dbb88eb067149d719fa1eaf2f46d0b38385b466
+
 git clone --branch ascent https://github.com/AMReX-Astro/Nyx.git
+git checkout bd7fe8a9f553b9588ea1f90b37705add05d9fec2
 
 pushd Nyx/Exec/LyA
 
