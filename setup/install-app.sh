@@ -8,11 +8,22 @@ echo "--------------------------------------------------"
 echo "PTN: building $PACKAGE"
 echo "--------------------------------------------------"
 
+# Commits
+NYX_COMMIT=bd7fe8a9f553b9588ea1f90b37705add05d9fec2
+AMREX_COMMIT=a595fc350b7c610799233b46f0f7aa0347d57404
+
 mkdir $PACKAGEDIR 
 pushd $PACKAGEDIR
 
+# AMREX
 git clone --branch development https://github.com/AMReX-Codes/amrex.git
+pushd amrex
+git checkout $AMREX_COMMIT
+
+# ASCENT
 git clone --branch ascent https://github.com/AMReX-Astro/Nyx.git
+pushd Nyx
+git checkout $NYX_COMMIT
 
 pushd Nyx/Exec/LyA
 
