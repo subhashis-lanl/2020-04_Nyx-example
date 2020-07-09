@@ -1,7 +1,7 @@
 # Pantheon environment file
 
 # summit environment
-SUMMIT_ALLOCATION=csc340
+SUMMIT_ALLOCATION=aaa000
 
 # read values from pantheon file
 export PANTHEON_WORKFLOW_ID=`awk '/pantheonid/{print $NF}' pantheon/pantheon.yml`

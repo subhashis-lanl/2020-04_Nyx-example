@@ -19,17 +19,19 @@ pushd $PACKAGEDIR
 git clone --branch development https://github.com/AMReX-Codes/amrex.git
 pushd amrex
 git checkout $AMREX_COMMIT
+popd
 
 # ASCENT
 git clone --branch ascent https://github.com/AMReX-Astro/Nyx.git
 pushd Nyx
 git checkout $NYX_COMMIT
+popd
 
 pushd Nyx/Exec/LyA
 
 # static build on summit
 ASCENT_VERSION=0.5.2-pre
-ASCENT_INSTALL_DIR=/gpfs/alpine/world-shared/$SUMMIT_ALLOCATION/software/ascent/$ASCENT_VERSION/summit/openmp/gnu/ascent-install
+ASCENT_INSTALL_DIR=/gpfs/alpine/world-shared/csc340/software/ascent/$ASCENT_VERSION/summit/openmp/gnu/ascent-install
 
 make -j 4 \
         AMREX_HOME=$PANTHEON_WORKFLOW_DIR/$PACKAGEDIR/amrex \
